@@ -1,7 +1,7 @@
 import std.mem;
 
 struct Header {
-    u32 identifier;
+    u32 creature;
     u32 index;
     char skeleton[256];
 };

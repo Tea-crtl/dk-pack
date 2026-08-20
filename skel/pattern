@@ -1,0 +1,46 @@
+// works for magic_number: 537134889
+// structure changed for 538513712 - names are XORed by 0x45, ASCII E
+
+struct Quaternion {
+    float x, y, z, w;
+};
+
+struct Vector3f {
+    float x, y, z;
+};
+
+struct Row {
+    float col[4];
+};
+
+struct Matrix {
+    Row row[4];
+};
+
+struct Bone {
+    u32 name_length;
+    char name[name_length];
+    u32 id_name_length;
+    char id_name[id_name_length];
+    Quaternion local_rotation;
+    Vector3f local_position;
+    Matrix inverse_bind_pose_matrix;
+    
+    u32 child_count;
+    Bone children[child_count];
+};
+
+struct Header {
+    u32 magic_number;
+    u32 root_bone_count;
+    u32 total_bone_count;
+    u32 data_pointer;
+    u32 data_size;
+    u32 unk1;
+    u32 unk2;
+    u32 unk3;
+    char path[64];
+};
+
+Header header @0x00;
+Bone bone @header.data_pointer;

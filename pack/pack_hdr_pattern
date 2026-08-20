@@ -1,0 +1,40 @@
+#pragma array_limit 150000
+#pragma pattern_limit 1500000
+
+struct Data {
+    u32 name_length;
+    char name[name_length];
+    u64 position;
+    u32 size;
+    u64 time;
+};
+
+struct Hole {
+    u32 size;
+    u64 position;
+};
+
+struct Filter {
+    u32 name_length;
+    char name[name_length];
+};
+
+struct PackInfo {
+    u32 name_length;
+    char name[name_length];
+    u32 filter_count;
+    Filter filter[filter_count];
+    u64 content_size;
+    u32 data_count;
+    u32 hole_count;
+    Hole hole[hole_count];
+    Data data[data_count];
+};
+
+struct PackHeader {
+    u8 dummy_header[400];
+    u32 pack_info_count;
+    PackInfo pack_info[pack_info_count];
+};
+
+PackHeader header @ 0x00;

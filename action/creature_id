@@ -1,4 +1,4 @@
-ID      IDENTIFIER
+id      creature
 0       PC
 1       MONSTER
 4       NPC

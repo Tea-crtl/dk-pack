@@ -1,0 +1,32 @@
+import std.mem;
+
+struct Header {
+    u32 identifier;
+    u32 index;
+    char skeleton[256];
+};
+
+struct Item {
+    u8 style;
+    u32 action;
+    u32 index;
+    char animation[256];
+    float start_inter;
+    float end_inter;
+    float time_length;
+    u8 swing;
+    u8 strike;
+    float timing;
+    u8 split;
+    float timing2;
+    u32 freeze;
+    u32 effect;
+    u32 cancel_time;
+    u8 default;
+    u8 intersect;
+    u8 through;
+};
+
+Header header @ 0x00;
+
+Item items[while (!std::mem::eof())] @ 0x108;

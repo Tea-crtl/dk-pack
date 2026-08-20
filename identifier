@@ -1,0 +1,16 @@
+ID      IDENTIFIER
+0       PC
+1       MONSTER
+4       NPC
+9       ITEM
+2       SERVANT
+3       GUARD
+5       BRICK
+6       SENTRY
+7       VEHICLE
+8       RIDER
+17      PET
+19      WINGRIDER
+20      COSTUME
+21      TRUSTNPC
+22      TRIGGER
